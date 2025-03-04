@@ -1,0 +1,240 @@
+/* --------- Reset --------- */
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+/* --------- Colors --------- */
+
+:root {
+  --dark-blue: #202046;
+  --grayish-blue: #babacf;
+}
+
+/* --------- Styling --------- */
+
+html {
+  height: 100%;
+  width: 375px;
+}
+body {
+  width: 100%;
+  margin: 30px 0;
+  text-align: center;
+
+  background-color: white;
+  background-image: url(/images/pattern-curve.svg);
+  background-repeat: no-repeat;
+  background-position: left -50px bottom;
+  background-attachment: fixed;
+  background-size: 90%;
+}
+
+/* Profile */
+
+.profile {
+  background-image: url(/images/pattern-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 90%;
+  background-attachment: local;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img.pic {
+  height: 270px;
+  width: 260px;
+  margin-top: 22px;
+
+  /* only add shadow at the bottom 
+  ref: https://stackoverflow.com/a/6245879 */
+  box-shadow: 0 65px 60px -60px var(--dark-blue);
+}
+
+/* slider */
+.slider {
+  height: 40px;
+  width: 90px;
+  margin: 0;
+
+  background-color: white;
+  border-radius: 30px;
+
+  display: flex;
+  translate: 0 -50%; /* move from current place */
+}
+
+.prev,
+.next {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+
+  flex-basis: 50%;
+}
+
+.prev {
+  background-image: url(/images/icon-prev.svg);
+}
+
+.next {
+  background-image: url(/images/icon-next.svg);
+}
+
+/* Quote */
+p {
+  margin: 25px 0 15px 0;
+  padding: 30px 20px 0 20px;
+
+  color: var(--dark-blue);
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 300;
+
+  background-image: url(/images/pattern-quotes.svg);
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: top center;
+}
+
+.name {
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 0.6rem;
+}
+
+.job-title {
+  color: var(--grayish-blue);
+  font-weight: 500;
+  font-size: 0.58rem;
+}
+
+/* Utilities */
+.debug {
+  outline: none;
+  /* outline: 1px solid red; */
+}
+
+/* --------- Desktop --------- */
+@media screen and (min-device-width: 1440px) {
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 5px auto;
+  }
+
+  body {
+    background-position: left bottom;
+    background-size: 50%;
+  }
+  main {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+
+  /* Profile */
+  .profile {
+    height: 700px;
+    margin: 0 auto;
+    background: none;
+
+    flex-basis: 50%;
+    order: 1;
+  }
+
+  .bg-img {
+    height: 700px;
+    margin: 0;
+    padding: 0 50px;
+
+    background-image: url(/images/pattern-bg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: local;
+    background-position: right;
+
+    z-index: -1;
+  }
+
+  img.pic {
+    width: 550px;
+    height: 525px;
+    margin-top: 55px;
+  }
+
+  /* slider */
+  .slider {
+    width: 140px;
+    height: 60px;
+
+    border-radius: 50px;
+
+    translate: -120% -150%;
+    z-index: 999;
+  }
+
+  .prev,
+  .next {
+    background-size: 25%;
+  }
+
+  .prev:focus,
+  .next:focus {
+    outline: 1px solid var(--dark-blue);
+  }
+
+  .prev {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+
+  .next {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  /* Quote */
+  .quote {
+    flex-basis: 50%;
+  }
+
+  p {
+    width: 98%; /* big width to make it overflow out of parent container */
+    margin: 0 180px;
+    padding: 50px 0;
+
+    font-size: 1.25rem;
+    text-align: left;
+    line-height: 2rem;
+    letter-spacing: 1px;
+
+    background-position: left 100px top -20px;
+    z-index: 2;
+  }
+
+  .particulars {
+    width: 100%;
+    margin: 0 180px;
+
+    display: flex;
+    gap: 20px;
+  }
+
+  .name,
+  .job-title {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
